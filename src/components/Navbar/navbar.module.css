@@ -1,0 +1,12 @@
+.nav-container{
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+}
+
+.nav-container > img {
+    width: 32%;
+}
+

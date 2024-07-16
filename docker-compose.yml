@@ -1,0 +1,18 @@
+version: '3.8'
+
+name: pokemon
+
+services:
+  react:
+    container_name: react
+    build: .
+    command: sh -c "npm run start"
+    volumes:
+      - .:/usr/app
+    ports:
+      - ${REACT_PORT}:${REACT_PORT}
+    networks:
+      - pokemon
+
+networks:
+  pokemon:

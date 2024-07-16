@@ -1,0 +1,23 @@
+
+.result-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+.img-container{
+  width: 22%;
+  margin-bottom: 5rem;
+  border: 0.18rem solid #ced4da;
+  border-radius: 1rem;
+}
+
+.center-loader{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: pink; */
+}

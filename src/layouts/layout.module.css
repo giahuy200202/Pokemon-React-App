@@ -1,0 +1,8 @@
+.base-layout-container{
+    /* background: #edf2ff; */
+    min-height: 100vh;
+}
+
+.content-container{
+    width: 100%;
+}

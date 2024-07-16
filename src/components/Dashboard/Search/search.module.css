@@ -1,0 +1,28 @@
+.search-container {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.search-group{
+    position: relative;
+    width: 40%;
+}
+
+.svg-style{
+    position: absolute;
+    top: 1.05rem;
+    right: 1.8rem;
+    width: 2rem;
+    z-index: 10;
+}
+
+.search-group>input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.6rem;
+    border: 0.18rem solid #ced4da;
+    font-size: 1.5rem;
+}
+
+
