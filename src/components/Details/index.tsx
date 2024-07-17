@@ -17,8 +17,6 @@ const DetailsComponent: React.FC = () => {
 
     useEffect(() => {
         const getPokemonDetailsById = pokemon.find((pokemon) => pokemon.id === parseInt(id!));
-        console.log('pokemon ', pokemon);
-        console.log('getPokemon details: ', getPokemonDetailsById);
         setPokemonDetails(getPokemonDetailsById);
     }, []);
 

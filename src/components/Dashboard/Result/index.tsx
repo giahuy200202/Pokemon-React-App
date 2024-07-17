@@ -11,12 +11,11 @@ import { useNavigate } from "react-router-dom";
 
 const Result: React.FC = () => {
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const pokemonBySearch = useAppSelector((state) => state.dashboard.pokemonBySearch);
   const isSearching = useAppSelector((state) => state.dashboard.isSearching);
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState<number>(0);
   const themeIsDark = useAppSelector((state) => state.dashboard.themeIsDark);
-
 
   const navigate = useNavigate();
 
@@ -46,9 +45,7 @@ const Result: React.FC = () => {
               }
             }
             pokemonForDispatch.push(pokemonResponse);
-
             if (i === lengthOfPokemon - 1) {
-              console.log('pokemonForDispatch: ', pokemonForDispatch)
               dispatch(dashboardActions.updatePokemonBySearch(pokemonForDispatch));
               dispatch(dashboardActions.updatePokemon(pokemonForDispatch));
               setIsLoading(false);

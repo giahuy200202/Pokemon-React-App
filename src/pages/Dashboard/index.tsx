@@ -9,10 +9,9 @@ const Dashboard: React.FC = () => {
   return (
     <div className={styles["dashboard-container"]} >
       <div className={styles["content-container"]}>
-          <div className={styles["search-container"]}> <Search /></div>
-          <div className={styles["result-container"]}> <Result /></div>
+        <div className={styles["search-container"]}> <Search /></div>
+        <div className={styles["result-container"]}> <Result /></div>
       </div>
-      <Toaster position="top-right" />
     </div>
   );
 };

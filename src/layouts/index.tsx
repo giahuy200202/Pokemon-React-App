@@ -15,7 +15,10 @@ const BaseLayout: React.FC = () => {
     dispatch(dashboardActions.updateTheme(!themeIsDark));
   }
   return (
-    <div className={styles["base-layout-container"]} style={{ background: themeIsDark ? '#212529' : '', color: themeIsDark ? '#adb5bd' : ''}}>
+    <div 
+      className={styles["base-layout-container"]} 
+      style={{ background: themeIsDark ? '#212529' : '', color: themeIsDark ? '#adb5bd' : ''}}
+    >
       <Navbar />
       <Outlet />
       <div onClick={changeThemeHandler}className={styles["change-theme-container"]}>

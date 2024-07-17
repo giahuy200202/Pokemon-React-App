@@ -1,11 +1,9 @@
 import React from "react";
 import styles from "./search.module.css";
 import { useAppDispatch, useAppSelector } from "../../../hooks/ReduxHooks";
-import axios from "axios";
 import { dashboardActions } from "../../../store/dashboard";
 import { useState } from "react";
 import { ReactComponent as SearchLightTheme } from '../../../assets/svg/search_light.svg';
-import { ReactComponent as SearchDarkTheme } from '../../../assets/svg/search_dark.svg';
 import { ReactComponent as CheckIcon } from '../../../assets/svg/check.svg';
 import { ReactComponent as UncheckIcon } from '../../../assets/svg/uncheck.svg';
 import { ReactComponent as UncheckIconDark } from '../../../assets/svg/uncheck_dark.svg';
@@ -51,7 +49,6 @@ const Search: React.FC = () => {
     else{
       setTypeIsChecked(index);
       const pokemonFiltered = pokemon.filter((pokemon) => pokemon.type.includes(typeFilter[index]));
-      console.log('pokemonFiltered', pokemonFiltered);
       dispatch(dashboardActions.updateSearchStatus(true));
       dispatch(dashboardActions.replacePokemonBySearch(pokemonFiltered));
     }
