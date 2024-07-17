@@ -13,6 +13,7 @@ const Result: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const pokemonBySearch = useAppSelector((state) => state.dashboard.pokemonBySearch);
+  const isFetch = useAppSelector((state) => state.dashboard.isFetch);
   const isSearching = useAppSelector((state) => state.dashboard.isSearching);
   const [offset, setOffset] = useState(0);
   console.log('pokemonBySearch', pokemonBySearch);
@@ -32,7 +33,7 @@ const Result: React.FC = () => {
         for (let i = 0; i < lengthOfPokemon; i++) {
           axios.get(res.data.results[i].url).then((res) => {
             const pokemonResponse: IPokemon = {
-              id: i,
+              id: res.data.id,
               name: res.data.species.name,
               svg: res.data.sprites.other.dream_world.front_default,
               type: res.data.types[0].type.name,
@@ -62,6 +63,9 @@ const Result: React.FC = () => {
   };
 
   useEffect(() => {
+    // if(isFetch){
+    //   fetchPokemon(offset);
+    // }
     fetchPokemon(offset);
   }, [offset]);
 
@@ -79,6 +83,7 @@ const Result: React.FC = () => {
       }
       intersectionObserver.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && !isSearching) {
+          // dispatch(dashboardActions.updateIsFetch(true));
           loadMore();
         }
       });
@@ -95,13 +100,13 @@ const Result: React.FC = () => {
         {pokemonBySearch.map((eachPokemon, index) => {
           if (index + 1 === pokemonBySearch.length) {
             return (
-              <div onClick={()=>{ navigate(`/pokemon/${index}`) }} ref={lastRef} className={styles["img-container"]} key={index}>
+              <div onClick={()=>{ navigate(`/pokemon/${eachPokemon.id}`) }} ref={lastRef} className={styles["img-container"]} key={eachPokemon.id}>
                 <Pokemon eachPokemon={eachPokemon} />
               </div>
             )
           }
           return (
-            <div onClick={()=>{ navigate(`/pokemon/${index}`) }} className={styles["img-container"]} key={index}>
+            <div onClick={()=>{ navigate(`/pokemon/${eachPokemon.id}`) }} className={styles["img-container"]} key={eachPokemon.id}>
               <Pokemon eachPokemon={eachPokemon} />
             </div>
           )

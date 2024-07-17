@@ -16,7 +16,7 @@
 }
 
 .img-container > img{
-    width: 80%;
+    width: 60%;
     object-fit: cover;
 }
 
@@ -25,4 +25,30 @@
     align-self: flex-start;
     padding: 3rem;
     /* background: green; */
+}
+
+.info-container > h1{
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-items {
+    margin-left: 1.5rem;
+}
+
+.button-back{
+    background: #4263eb;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 4rem;
+    color: white;
+    margin-top: 8rem;
+}
+
+.button-back:hover{
+    cursor: pointer;
+    background: #4c6ef5;
 }
