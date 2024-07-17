@@ -1,8 +1,18 @@
 .base-layout-container{
-    /* background: #edf2ff; */
-    min-height: 100vh;
+    padding-bottom: 5rem;
 }
 
 .content-container{
     width: 100%;
+}
+
+.change-theme-container{
+    position: fixed;
+    bottom: 5rem;
+    right: 6rem;
+    width: 3.8rem;
+}
+
+.change-theme-container:hover{
+    cursor: pointer;
 }

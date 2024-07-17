@@ -20,14 +20,14 @@ export interface IPokemon {
 interface InitialDashboardState {
   pokemon: IPokemon[];
   pokemonBySearch: IPokemon[];
-  theme: string;
+  themeIsDark: boolean;
   isSearching: boolean;
 }
 
 const initialDashboardState: InitialDashboardState = {
   pokemon: [],
   pokemonBySearch: [],
-  theme: 'white',
+  themeIsDark: false,
   isSearching: false,
 };
 
@@ -47,8 +47,8 @@ const dashboardSlice = createSlice({
     replacePokemonBySearch(state, action: PayloadAction<IPokemon[]>){
       state.pokemonBySearch = [...action.payload];
     },
-    updateTheme(state, action: PayloadAction<string>){
-      state.theme = action.payload;
+    updateTheme(state, action: PayloadAction<boolean>){
+      state.themeIsDark = action.payload;
     },
     updateSearchStatus(state, action: PayloadAction<boolean>){
       state.isSearching = action.payload;

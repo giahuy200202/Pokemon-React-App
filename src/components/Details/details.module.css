@@ -10,7 +10,7 @@
     width:65%;
     height: 100%;
     display: flex;
-    border-right: 1px solid #ced4da;
+    border-right: 0.18rem solid #ced4da;
     align-items: center;
     justify-content: center;
 }

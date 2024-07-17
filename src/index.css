@@ -5,8 +5,9 @@
   font-size: 1.6rem;
 }
 
-html {
+html,  #app, #app>div {
   font-size: 62.5%;
+  height: 100%
 }
 
 body, button, input, p, h1, h2, h3, h4, h5{

@@ -15,8 +15,8 @@ const Result: React.FC = () => {
   const pokemonBySearch = useAppSelector((state) => state.dashboard.pokemonBySearch);
   const isSearching = useAppSelector((state) => state.dashboard.isSearching);
   const [offset, setOffset] = useState(0);
-  console.log('pokemonBySearch', pokemonBySearch);
-  console.log('offset', offset);
+  const themeIsDark = useAppSelector((state) => state.dashboard.themeIsDark);
+
 
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ const Result: React.FC = () => {
             }
             pokemonForDispatch.push(pokemonResponse);
 
-            if(i === lengthOfPokemon - 1){
+            if (i === lengthOfPokemon - 1) {
               console.log('pokemonForDispatch: ', pokemonForDispatch)
               dispatch(dashboardActions.updatePokemonBySearch(pokemonForDispatch));
               dispatch(dashboardActions.updatePokemon(pokemonForDispatch));
@@ -91,25 +91,40 @@ const Result: React.FC = () => {
 
   return (
     <div>
-      <div className={styles["result-container"]}>
-        {pokemonBySearch.map((eachPokemon, index) => {
-          if (index + 1 === pokemonBySearch.length) {
+      {pokemonBySearch.length === 0 ?
+        <div className={styles["no-result"]}>No result found</div> :
+        <div className={styles["result-container"]}>
+          {pokemonBySearch.map((eachPokemon, index) => {
+            if (index + 1 === pokemonBySearch.length) {
+              return (
+                <div
+                  onClick={() => { navigate(`/pokemon/${eachPokemon.id}`) }}
+                  ref={lastRef}
+                  className={styles["img-container"]}
+                  key={eachPokemon.id}
+                  style={{ borderColor: themeIsDark ? '#495057' : '', }}
+                >
+                  <Pokemon eachPokemon={eachPokemon} />
+                </div>
+              )
+            }
             return (
-              <div onClick={()=>{ navigate(`/pokemon/${eachPokemon.id}`) }} ref={lastRef} className={styles["img-container"]} key={eachPokemon.id}>
+              <div
+                onClick={() => { navigate(`/pokemon/${eachPokemon.id}`) }}
+                className={styles["img-container"]}
+                key={eachPokemon.id}
+                style={{ borderColor: themeIsDark ? '#495057' : '', }}
+              >
                 <Pokemon eachPokemon={eachPokemon} />
               </div>
             )
-          }
-          return (
-            <div onClick={()=>{ navigate(`/pokemon/${eachPokemon.id}`) }} className={styles["img-container"]} key={eachPokemon.id}>
-              <Pokemon eachPokemon={eachPokemon} />
-            </div>
-          )
-        })}
-      </div>
+          })}
+        </div>
+      }
+
       {isLoading && <div className={styles["center-loader"]}>
         <BeatLoader
-          color="#5c7cfa"
+          color="#748ffc"
           margin={2}
           size={15}
           speedMultiplier={0.5}

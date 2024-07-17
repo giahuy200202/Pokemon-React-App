@@ -11,6 +11,7 @@ const DetailsComponent: React.FC = () => {
     const { id } = useParams();
     const pokemon = useAppSelector((state) => state.dashboard.pokemon);
     const [pokemonDetails, setPokemonDetails] = React.useState<IPokemon>();
+    const themeIsDark = useAppSelector((state) => state.dashboard.themeIsDark);
     const navgigate = useNavigate();
     const dispatch = useAppDispatch();
 
@@ -22,8 +23,8 @@ const DetailsComponent: React.FC = () => {
     }, []);
 
     return (
-        <div className={styles["details-container"]} >
-            <div className={styles["img-container"]}>
+        <div className={styles["details-container"]}>
+            <div className={styles["img-container"]} style={{ borderColor: themeIsDark ? '#495057' : '', }}>
                 <img src={pokemonDetails?.svg} alt={pokemonDetails?.name} />
             </div>
             <div className={styles["info-container"]}>
