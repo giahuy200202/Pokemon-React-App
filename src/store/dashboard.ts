@@ -22,7 +22,6 @@ interface InitialDashboardState {
   pokemonBySearch: IPokemon[];
   theme: string;
   isSearching: boolean;
-  isFetch: boolean;
 }
 
 const initialDashboardState: InitialDashboardState = {
@@ -30,7 +29,6 @@ const initialDashboardState: InitialDashboardState = {
   pokemonBySearch: [],
   theme: 'white',
   isSearching: false,
-  isFetch: true,
 };
 
 const dashboardSlice = createSlice({
@@ -55,9 +53,6 @@ const dashboardSlice = createSlice({
     updateSearchStatus(state, action: PayloadAction<boolean>){
       state.isSearching = action.payload;
     },
-    updateIsFetch(state, action: PayloadAction<boolean>){
-      state.isSearching = action.payload;
-    }
   },
 });
 

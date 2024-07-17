@@ -13,7 +13,6 @@ const Result: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const pokemonBySearch = useAppSelector((state) => state.dashboard.pokemonBySearch);
-  const isFetch = useAppSelector((state) => state.dashboard.isFetch);
   const isSearching = useAppSelector((state) => state.dashboard.isSearching);
   const [offset, setOffset] = useState(0);
   console.log('pokemonBySearch', pokemonBySearch);
@@ -63,9 +62,6 @@ const Result: React.FC = () => {
   };
 
   useEffect(() => {
-    // if(isFetch){
-    //   fetchPokemon(offset);
-    // }
     fetchPokemon(offset);
   }, [offset]);
 
@@ -83,7 +79,6 @@ const Result: React.FC = () => {
       }
       intersectionObserver.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && !isSearching) {
-          // dispatch(dashboardActions.updateIsFetch(true));
           loadMore();
         }
       });
