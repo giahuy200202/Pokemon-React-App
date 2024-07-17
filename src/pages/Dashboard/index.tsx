@@ -3,7 +3,6 @@ import styles from "./dashboard.module.css";
 
 import Search from "../../components/Dashboard/Search/index";
 import Result from "../../components/Dashboard/Result/index";
-import { Toaster } from 'react-hot-toast';
 
 const Dashboard: React.FC = () => {
   return (
