@@ -1,0 +1,28 @@
+.details-container{
+    display: flex;;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.img-container {
+    width:65%;
+    height: 100%;
+    display: flex;
+    border-right: 1px solid #ced4da;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container > img{
+    width: 80%;
+    object-fit: cover;
+}
+
+.info-container{
+    width: 50%;
+    align-self: flex-start;
+    padding: 3rem;
+    /* background: green; */
+}

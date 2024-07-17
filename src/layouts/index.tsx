@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast';
 const BaseLayout: React.FC = () => {
   return (
     <div className={styles["base-layout-container"]}>
+      <Navbar />
       <Outlet />
     </div>
   );

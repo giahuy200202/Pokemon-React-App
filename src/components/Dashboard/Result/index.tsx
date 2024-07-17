@@ -6,16 +6,19 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { dashboardActions, IPokemon } from "../../../store/dashboard";
 import axios from "axios";
 import Pokemon from "../../Pokemon";
+import { useNavigate } from "react-router-dom";
+
 
 const Result: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const pokemonBySearch = useAppSelector((state) => state.dashboard.pokemonBySearch);
   const isSearching = useAppSelector((state) => state.dashboard.isSearching);
-  const [test, setTest] = useState<any[]>([]);
   const [offset, setOffset] = useState(0);
   console.log('pokemonBySearch', pokemonBySearch);
   console.log('offset', offset);
+
+  const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
 
@@ -50,7 +53,6 @@ const Result: React.FC = () => {
               dispatch(dashboardActions.updatePokemon(pokemonForDispatch));
               setIsLoading(false);
             }
-
           });
         }
       })
@@ -93,13 +95,13 @@ const Result: React.FC = () => {
         {pokemonBySearch.map((eachPokemon, index) => {
           if (index + 1 === pokemonBySearch.length) {
             return (
-              <div ref={lastRef} className={styles["img-container"]} key={index}>
+              <div onClick={()=>{ navigate(`/pokemon/${index}`) }} ref={lastRef} className={styles["img-container"]} key={index}>
                 <Pokemon eachPokemon={eachPokemon} />
               </div>
             )
           }
           return (
-            <div className={styles["img-container"]} key={index}>
+            <div onClick={()=>{ navigate(`/pokemon/${index}`) }} className={styles["img-container"]} key={index}>
               <Pokemon eachPokemon={eachPokemon} />
             </div>
           )

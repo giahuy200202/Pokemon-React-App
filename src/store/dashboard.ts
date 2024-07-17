@@ -28,7 +28,7 @@ const initialDashboardState: InitialDashboardState = {
   pokemon: [],
   pokemonBySearch: [],
   theme: 'white',
-  isSearching: false
+  isSearching: false,
 };
 
 const dashboardSlice = createSlice({

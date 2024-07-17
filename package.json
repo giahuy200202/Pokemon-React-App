@@ -1,7 +1,7 @@
 {
-  "name": "g-weather-forecast",
+  "name": "pokemon",
   "version": "1.0.0",
-  "author": "g-weather-forecast",
+  "author": "pokemon",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
